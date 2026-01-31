@@ -509,19 +509,36 @@ function animateStats() {
 }
 
 .hero-headline {
-  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-size: clamp(1.5rem, 5vw, 3.5rem);
   font-weight: 900;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 0 40px rgba(102, 126, 234, 0.3);
+  text-shadow: 0 0 40px rgba(102, 126, 234, 0.5);
   margin-bottom: 1.5rem;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   font-family: 'Poppins', sans-serif;
-  line-height: 1.2;
-  white-space: nowrap;
+  line-height: 1.3;
   animation: titleGlow 3s ease-in-out infinite;
+  position: relative;
+  padding: 0.5rem;
+}
+
+.hero-headline::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: blur(8px);
+  opacity: 0.5;
+  z-index: -1;
 }
 
 @keyframes titleGlow {

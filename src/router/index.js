@@ -4,7 +4,9 @@ import AboutUs from '../views/AboutUs.vue'
 import ForInstitutions from '../views/ForInstitutions.vue'
 import AcademyHallOfFame from '../views/AcademyHallOfFame.vue'
 import ChathurvidhCompetition from '../views/ChathurvidhCompetition.vue'
-import RoboStore from '../views/RoboStore.vue'
+import Electronics from '../views/Electronics.vue'
+import Books from '../views/Books.vue'
+import Robots from '../views/Robots.vue'
 import ContactUs from '../views/ContactUs.vue'
 
 const routes = [
@@ -39,8 +41,22 @@ const routes = [
   },
   {
     path: '/store',
-    name: 'RoboStore',
-    component: RoboStore
+    redirect: '/store/electronics'
+  },
+  {
+    path: '/store/electronics',
+    name: 'Electronics',
+    component: Electronics
+  },
+  {
+    path: '/store/books',
+    name: 'Books',
+    component: Books
+  },
+  {
+    path: '/store/robots',
+    name: 'Robots',
+    component: Robots
   },
   {
     path: '/contact',

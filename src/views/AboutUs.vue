@@ -199,7 +199,7 @@
     </section>
 
     <!-- SECTION 3: CAREERS -->
-    <section class="careers-section">
+    <section class="careers-section" id="join-mission">
       <div class="careers-container">
         <div class="careers-content">
           <!-- Hiring Icon -->

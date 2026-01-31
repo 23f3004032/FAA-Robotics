@@ -49,6 +49,35 @@
           </transition>
         </div>
         
+        <!-- Robo Store Dropdown -->
+        <div class="dropdown-container" @mouseenter="showStoreDropdown = true" @mouseleave="showStoreDropdown = false">
+          <div 
+            class="nav-link dropdown-trigger"
+            :class="{ 'active': $route.path.includes('/store') }"
+          >
+            Robo Store
+            <i class="fas fa-chevron-down dropdown-icon" :class="{ 'rotated': showStoreDropdown }"></i>
+          </div>
+          
+          <transition name="dropdown-fade">
+            <div v-if="showStoreDropdown" class="dropdown-menu">
+              <router-link 
+                v-for="item in roboStoreLinks" 
+                :key="item.path"
+                :to="item.path"
+                class="dropdown-item"
+                @click="showStoreDropdown = false"
+              >
+                <i :class="item.icon"></i>
+                <div class="dropdown-item-content">
+                  <span class="dropdown-item-title">{{ item.name }}</span>
+                  <span class="dropdown-item-desc">{{ item.description }}</span>
+                </div>
+              </router-link>
+            </div>
+          </transition>
+        </div>
+        
         <router-link 
           v-for="link in postStudentLinks" 
           :key="link.path"
@@ -70,6 +99,7 @@ import { useRoute } from 'vue-router'
 
 const $route = useRoute()
 const showDropdown = ref(false)
+const showStoreDropdown = ref(false)
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -92,8 +122,28 @@ const studentZoneLinks = [
   }
 ]
 
+const roboStoreLinks = [
+  { 
+    name: 'Electronics for Sale', 
+    path: '/store/electronics',
+    icon: 'fas fa-microchip',
+    description: 'Sensors, Motors & More'
+  },
+  { 
+    name: 'Books for Sale', 
+    path: '/store/books',
+    icon: 'fas fa-book',
+    description: 'Robotics Learning Resources'
+  },
+  { 
+    name: 'Robots for Sale', 
+    path: '/store/robots',
+    icon: 'fas fa-robot',
+    description: 'Pre-built Robot Kits'
+  }
+]
+
 const postStudentLinks = [
-  { name: 'Robo Store', path: '/store' },
   { name: 'Contact Us', path: '/contact' }
 ]
 </script>
