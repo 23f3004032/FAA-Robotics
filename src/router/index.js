@@ -2,7 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import AboutUs from '../views/AboutUs.vue'
 import ForInstitutions from '../views/ForInstitutions.vue'
-import StudentZone from '../views/StudentZone.vue'
+import AcademyHallOfFame from '../views/AcademyHallOfFame.vue'
+import ChathurvidhCompetition from '../views/ChathurvidhCompetition.vue'
 import RoboStore from '../views/RoboStore.vue'
 import ContactUs from '../views/ContactUs.vue'
 
@@ -24,8 +25,17 @@ const routes = [
   },
   {
     path: '/student-zone',
-    name: 'StudentZone',
-    component: StudentZone
+    redirect: '/student-zone/academy'
+  },
+  {
+    path: '/student-zone/academy',
+    name: 'AcademyHallOfFame',
+    component: AcademyHallOfFame
+  },
+  {
+    path: '/student-zone/chathurvidha',
+    name: 'ChathurvidhCompetition',
+    component: ChathurvidhCompetition
   },
   {
     path: '/store',
